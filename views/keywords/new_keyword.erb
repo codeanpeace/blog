@@ -1,0 +1,16 @@
+<h1>Create a new keyword: </h1>
+
+<form method="post" action="/new_keyword">
+  Name:
+  <input type="text" name="keyword[name]">
+    <br>
+  <button>New Keyword</button>
+</form>
+
+Keywords:
+<ul>
+  <% Keyword.all.each do |keyword| %>
+    <li> <%= keyword.name %> </li>
+    <br>
+  <% end %>
+</ul>

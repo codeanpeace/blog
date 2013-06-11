@@ -1,0 +1,29 @@
+<strong><%= @post.title %></strong>
+- <%= Author.find(@post.author_id).full_name %>
+<br>
+<img src="<%= @post.image_url %>">
+<br>
+<%= @post.list_of_keywords %>
+<br>
+<%= @post.content %>
+<hr>
+<br>
+Comments:
+<br>
+<ul>
+  <%@post.comments.each do |comment| %>
+      <li><%= comment.name %><br><%= comment.content %><br><%= comment.created_at %></li>
+  <% end %>
+</ul>
+
+<form method="post" action="/<%= @post.id %>/new_comment">
+  Name:
+  <input type="text" name="comment[name]">
+  <br>
+
+  Comment:
+  <input type="text" name="comment[content]">
+  <br>
+
+  <button>Submit Comment</button>
+</form>

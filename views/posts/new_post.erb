@@ -1,0 +1,32 @@
+<form method="post" action="/new_post">
+  Title:
+  <input type="text" name="post[title]">
+  <br>
+
+  Image:
+  <input type="text" name="post[image_url]">
+  <br>
+
+  Content:
+  <input class="content" type="text" name="post[content]">
+  <br>
+
+  Author:
+  <select name="post[author_id]">
+    <% Author.all.each do |author| %>
+        <option value="<%= author.id %>"><%= author.full_name %></option>
+    <% end %>
+  </select>
+  <br>
+
+  Keywords:
+  <br>
+  <% Keyword.all.each do |keyword| %>
+    <input type="checkbox" name="post[keyword_ids][]" value="<%= keyword.id %>">
+    <%= keyword.name %>
+    <br>
+  <% end %>
+  <br>
+
+  <button>Post!</button>
+</form>

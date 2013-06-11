@@ -1,0 +1,18 @@
+<h1>H's Blog</h1>
+
+<% @posts.reverse_each do |post| %>
+  <ul>
+    <li>
+      <strong><%= post.title %></strong>
+      - <%= Author.find(post.author_id).full_name %>
+      <br>
+      <%= post.created_at %>
+      <br>
+      <img src="<%= post.image_url %>">
+      <br>
+      <%= post.list_of_keywords %>
+      <br>
+      <a href="view_post/<%= post.id %>">View Post and Comments</a>
+    </li>
+  </ul>
+<% end %>

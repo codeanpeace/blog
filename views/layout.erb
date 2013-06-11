@@ -1,0 +1,12 @@
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+
+  </ul>
+</nav>
+
+<%= yield %>
+
+<% if @admin %>
+  <a href="/admin">Admin</a>
+<% end %>
